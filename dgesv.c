@@ -10,6 +10,7 @@ int swap_rows(double *matrix, int row1, int row2, int n) {
     matrix[row1 * n + j] = matrix[row2 * n + j];
     matrix[row2 * n + j] = temp;
   }
+  return 0;
 }
 
 int my_dgesv(int n, int nrhs, double *a, double *b)
