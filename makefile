@@ -1,5 +1,7 @@
 # Default Lapacke: Openblas at CESGA
 LDLIBS=-lopenblas
+# CFLAGS=-O2 -fno-tree-vectorize
+CFLAGS=-O3 -ftree-vectorize -fopt-info-vec-all
 
 # Other systems (my Debian boxes, for example)
 #LDLIBS=-llapacke
@@ -11,7 +13,8 @@ LDLIBS=-lopenblas
 # Just invoke make like this: make CC=icx
 #LDLIBS=-qmkl=sequential -lmkl_intel_lp64
 
-dgesv: dgesv.o timer.o main.o
+dgesv_v3: dgesv.o timer.o main.o
+	$(CC) -o $@ $^ $(LDLIBS)
 
 clean:
-	$(RM) dgesv *.o *~
+	$(RM) *.o *~

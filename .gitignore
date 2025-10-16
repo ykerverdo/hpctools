@@ -1,2 +1,5 @@
 *.o
 dgesv
+dgesv_v2
+dgesv_v3
+job.sh-*

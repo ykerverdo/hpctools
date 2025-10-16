@@ -60,7 +60,7 @@
     }
 
     int size = atoi(argv[1]);
-
+    printf("Matrix size: %dx%d\n", size, size);
     double *a, *aref;
     double *b, *bref;
 
