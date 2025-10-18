@@ -1,5 +1,5 @@
 # Default Lapacke: Openblas at CESGA
-LDLIBS=-lopenblas
+LDLIBS=-lopenblas -lm
 # CFLAGS=-O2 -fno-tree-vectorize
 CFLAGS=-O3 -ftree-vectorize -fopt-info-vec-all
 

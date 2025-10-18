@@ -8,11 +8,12 @@
   #include <unistd.h>
   #include "timer.h"
   #include "dgesv.h"
+  #include <immintrin.h>
 
   double *generate_matrix(unsigned int size, unsigned int seed)
   {
     unsigned int i;
-    double *matrix = (double *) malloc(sizeof(double) * size * size);
+    double *matrix = (double *) _mm_malloc(size * size * sizeof(double), 32);
 
     srand(seed);
 

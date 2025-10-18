@@ -13,8 +13,10 @@ int swap_rows(double *matrix, int row1, int row2, int n) {
   return 0;
 }
 
-int my_dgesv(int n, int nrhs, double *a, double *b)
+int my_dgesv(int n, int nrhs, double *restrict a, double *restrict b)
 {
+  double *aligned_a = (double*)__builtin_assume_aligned(a, 32);
+  double *aligned_b = (double*)__builtin_assume_aligned(b, 32);
   for (int i=0;i<n;i++) {
 
     // Search for maximum in this column
@@ -39,9 +41,11 @@ int my_dgesv(int n, int nrhs, double *a, double *b)
     for (int j=i+1;j<n;j++) {
       double factor = a[j*n+i]/pivot;
       a[j*n+i] = 0.0;
+      #pragma omp simd
       for (int k=i+1;k<n;k++) {
         a[j*n+k] -= factor*a[i*n+k];
       }
+      #pragma omp simd
       for (int k=0;k<nrhs;k++) {
         b[j*nrhs+k] -= factor*b[i*nrhs+k];
       }

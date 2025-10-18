@@ -5,6 +5,6 @@
 #SBATCH -n 1   # number of concurrent jobs (64 cores/node)
 #SBATCH --mem-per-cpu 4G
 
-./dgesv_v2 1024
-./dgesv_v2 2048
-./dgesv_v2 4096
+./dgesv_v3 1024
+./dgesv_v3 2048
+./dgesv_v3 4096
