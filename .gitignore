@@ -2,4 +2,5 @@
 dgesv
 dgesv_v2
 dgesv_v3
+dgesv_v4
 job.sh-*

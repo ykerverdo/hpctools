@@ -119,3 +119,36 @@ Tentative de solution : faire le if dans une autre boucle séquentielle après, 
 for (int i=0;i<n;i++) 
 ```
 Boucle principale jamais vectorisables, trop de dépendances, de boucles imbriquées etc ...
+### -Ofast
+optimisations agressives et mathématiques rapides, mais moins strict sur la conformité aux normes
+Enables -ffast-math, optimizations that are not valid for all
+standard-compliant programs.
+
+1024x1024 : 2418 / 2344 / 2496
+2048x2048 : 36350 / 38594 / 38399
+4096x4096 : 542840 / 542857 / 538060
+
+
+## 11.4.0
+### REF/O0
+1024x1024 : 7704 / 7768 / 7776
+2048x2048 : 58725 / 59127 / 59428
+4096x4096 : 923832 / 973812 / 973747
+
+### O2 -novecsq
+
+1024x1024 : 2663 / 2634 / 2612
+2048x2048 : 27591 / 27081 / 27017
+4096x4096 : 475970 / 471019 / 470737
+
+### 03
+
+1024x1024 : 3317 / 3282 / 3285
+2048x2048 : 51579 / 47073 / 60205
+4096x4096 : 753977 / 758971 / 732310
+
+### -Ofast
+
+1024x1024 : 3553 / 3293 / 3539
+2048x2048 : 51899 / 47518 / 59792
+4096x4096 : 680866 / 687900 / 732173
