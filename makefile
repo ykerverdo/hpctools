@@ -1,4 +1,4 @@
-CC=gcc
+CC=gcc-8.4.0
 
 GCC_VERSION := $(shell $(CC) --version | head -n 1)
 $(info Using compiler: $(GCC_VERSION))
@@ -7,7 +7,8 @@ $(info Using compiler: $(GCC_VERSION))
 LDLIBS=-lopenblas -lm
 # CFLAGS=-O2 -fno-tree-vectorize
 # CFLAGS=-O3 -ftree-vectorize -fopt-info-vec-all
-CFLAGS=-Ofast -ftree-vectorize -fopt-info-vec-all
+# CFLAGS=-Ofast -ftree-vectorize -fopt-info-vec-all
+CFLAGS=-Ofast -ftree-vectorize -fopt-info-vec
 # CFLAGS=-O0
 
 # Other systems (my Debian boxes, for example)
